@@ -1,0 +1,159 @@
+﻿@page "/notes"
+@using Text_BasedAdventure
+
+
+<h2 style="text-align: center; font-family: 'Segoe UI', Tahoma, sans-serif;">Your Notes</h2>
+
+<!-- Display message if there are no notes, otherwise display notes with references and actions -->
+@if (notes.Count == 0)
+{
+    <p style="text-align: center; color: #999;">No notes available. Add a new note below.</p>
+}
+else
+{
+    @foreach (var note in notes)
+    {
+        <!-- Display note content, references, and buttons for editing and deleting -->
+        <div style="border: 1px solid #ccc; padding: 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
+            <p>@note.Content</p>
+            <h4 style="color: #333; margin-top: 15px;">References</h4>
+            @if (note.References.Count > 0)
+            {
+                <ul style="list-style-type: none; padding: 0;">
+                    @foreach (var reference in note.References)
+                    {
+                        <!-- Link to item or character reference -->
+                        <li style="margin-bottom: 5px;">
+                            <a href="@($"/item/{reference}")" style="text-decoration: none; color: #007BFF;">@reference</a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p style="color: #999;">No references added.</p>
+            }
+            <!-- Buttons for editing or deleting the note -->
+            <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                <button class="btn btn-primary" @onclick="() => EditNote(note.Id)">Edit</button>
+                <button class="btn btn-danger" @onclick="() => DeleteNote(note.Id)">Delete</button>
+            </div>
+        </div>
+    }
+}
+
+<!-- Form for adding or editing a note -->
+<div style="max-width: 600px; margin: 30px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
+   <h3>@(editMode ? "Edit Note" : "Add New Note")</h3>
+    <!-- Text area for note content -->
+   <textarea @bind="newNoteContent" placeholder="Enter note content" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc; margin-top: 10px;" rows="4"></textarea>
+
+    <h4 style="margin-top: 20px;">References</h4>
+    <!-- Input field to add new reference -->
+    <input type="text" @bind="newNoteReference" placeholder="Enter reference (item/character)" style="width: 100%; padding: 10px; margin-top: 10px; border-radius: 4px; border: 1px solid #ccc;" />
+    <button class="btn btn-secondary" style="margin-top: 10px;" @onclick="AddReference">Add Reference</button>
+
+    <!-- Display the list of added references -->
+    @if (newNoteReferences.Count > 0)
+    {
+        <ul style="list-style-type: none; padding: 0; margin-top: 15px;">
+            @foreach (var reference in newNoteReferences)
+            {
+                <li style="margin-bottom: 5px;">@reference</li>
+            }
+        </ul>
+    }
+
+    <!-- Button to save or update the note -->
+    <button class="btn btn-success" style="margin-top: 20px;" @onclick="SaveNote">@((editMode ? "Update" : "Save"))</button>
+</div>
+
+@code {
+    // List of notes to display
+    private List<Note> notes = new List<Note>();
+
+    // Content of the new or edited note
+    private string newNoteContent = string.Empty;
+
+    // Reference for the new or edited note
+    private string newNoteReference = string.Empty;
+
+    // List of references for the current note
+    private List<string> newNoteReferences = new List<string>();
+
+    // Flag indicating whether the form is in edit mode
+    private bool editMode = false;
+
+    // ID of the note being edited
+    private int editNoteId = 0;
+
+    // Adds a reference to the current note's reference list
+    private void AddReference()
+    {
+        if (!string.IsNullOrWhiteSpace(newNoteReference))
+        {
+            newNoteReferences.Add(newNoteReference);
+            newNoteReference = string.Empty;
+        }
+    }
+
+    // Saves a new note or updates an existing one
+    private void SaveNote()
+    {
+        if (editMode)
+        {
+            var updatedNote = notes.FirstOrDefault(n => n.Id == editNoteId);
+            if (updatedNote != null)
+            {
+                updatedNote.Content = newNoteContent;
+                updatedNote.References = new List<string>(newNoteReferences);
+            }
+        }
+        else
+        {
+            var newNote = new Note
+                {
+                    Id = notes.Count + 1,
+                    Content = newNoteContent,
+                    References = new List<string>(newNoteReferences)
+                };
+            notes.Add(newNote);
+        }
+
+        ResetForm();
+    }
+
+    // Loads the note into the form for editing
+    private void EditNote(int noteId)
+    {
+        var note = notes.FirstOrDefault(n => n.Id == noteId);
+        if (note != null)
+        {
+            editNoteId = noteId;
+            newNoteContent = note.Content;
+            newNoteReferences = new List<string>(note.References);
+            editMode = true;
+        }
+    }
+
+    // Deletes a note from the list
+    private void DeleteNote(int noteId)
+    {
+        var note = notes.FirstOrDefault(n => n.Id == noteId);
+        if (note != null)
+        {
+            notes.Remove(note);
+        }
+
+        ResetForm();
+    }
+
+    // Resets the form fields and exits edit mode
+    private void ResetForm()
+    {
+        newNoteContent = string.Empty;
+        newNoteReferences = new List<string>();
+        editMode = false;
+    }
+}
+

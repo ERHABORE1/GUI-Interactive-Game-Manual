@@ -1,0 +1,44 @@
+﻿@page "/maze"
+@using Text_BasedAdventure
+
+@inject GUIInteractiveGameManual.Services.IMazeServices MazeService
+  
+<h2> The Maze</h2>
+
+
+<!-- Loop through the width of the maze grid -->
+@for (int i = 0; i < MazeService.Maze.width; i++)
+{
+    <div>
+        <!-- Loop through the height of the maze grid -->
+    @for (int j = 0; j < MazeService.Maze.height; j++)
+    {
+        var tile = MazeService.Maze.grid[i, j];
+        if (tile.IsWall)
+        {
+            <span style="color:red">#</span> <!-- Wall -->
+        }
+        else if (tile.IsExit)
+        {
+            <span style="color:green">E</span> <!-- Exit -->
+        }
+        else if (tile.HasMonster)
+        {
+            <span style="color:blue">M</span> <!-- Monster -->
+        }
+        else if (tile.HasItem)
+        {
+            <span style="color:yellow">I</span> <!-- Item -->
+        }
+        else
+        {
+            <span>_</span> <!-- Empty space -->
+        }
+    }
+    </div>
+
+}
+
+@code {
+
+}

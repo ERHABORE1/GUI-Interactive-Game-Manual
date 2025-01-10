@@ -1,0 +1,43 @@
+﻿@page "/characters"
+@using Text_BasedAdventure
+@inject GUIInteractiveGameManual.Services.IMazeServices MazeService
+
+<h2 style="text-align: center; font-family: 'Segoe UI', Tahoma, sans-serif;">Game Characters</h2>
+
+<!-- Section for displaying Player Characters -->
+<h3 style="color: #007BFF; margin-top: 20px; font-family: 'Segoe UI', Tahoma, sans-serif;">Player Characters</h3>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 40px;">
+    @foreach (var player in MazeService.Players)
+    {
+        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 20px; max-width: 300px; text-align: center;">
+            <!-- Player image -->
+            <img src="https://th.bing.com/th/id/OIP.UpstQxtm6KWxi4PI0dkJEQHaEK?w=277&h=180&c=7&r=0&o=5&pid=1.7" alt="@player.Name" style="max-width: 100%; height: auto; border-radius: 8px;" />
+            <!-- Player name displayed as a header -->
+            <h4 style="margin: 10px 0; color: #007BFF;">@player.Name</h4>
+            <!-- Player attributes: Health and Attack Power -->
+            <p><strong>Health:</strong> @player.Health</p>
+            <p><strong>Attack Power:</strong> @player.AttackPower</p>
+            <!-- Link to view player details, dynamically generated using player name -->
+            <a href="@($"/character/{player.Name}")" style="display: inline-block; padding: 8px 16px; background-color: #28a745; color: white; border-radius: 4px; text-decoration: none; margin-top: 10px;">View Details</a>
+        </div>
+    }
+</div>
+
+<!-- Section for displaying Monsters -->
+<h3 style="color: #DC3545; margin-top: 20px; font-family: 'Segoe UI', Tahoma, sans-serif;">Monsters</h3>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+    @foreach (var monster in MazeService.Monsters)
+    {
+        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 20px; max-width: 300px; text-align: center;">
+            <!-- Monster image -->
+            <img src="https://th.bing.com/th/id/OIP._lfcw_RBTUli68w9zUYkBwHaE8?w=221&h=180&c=7&r=0&o=5&pid=1.7" alt="@monster.Name" style="max-width: 100%; height: auto; border-radius: 8px;" />
+            <!-- Monster name displayed as a header -->
+            <h4 style="margin: 10px 0; color: #DC3545;">@monster.Name</h4>
+            <!-- Monster attributes: Health and Attack Power -->
+            <p><strong>Health:</strong> @monster.Health</p>
+            <p><strong>Attack Power:</strong> @monster.AttackPower</p>
+            <!-- Link to view monster details, dynamically generated using monster name -->
+            <a href="@($"/character/{monster.Name}")" style="display: inline-block; padding: 8px 16px; background-color: #DC3545; color: white; border-radius: 4px; text-decoration: none; margin-top: 10px;">View Details</a>
+        </div>
+    }
+</div>

@@ -1,0 +1,83 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GUI Interactive Game Manual
+build_property.RootNamespace = GUI Interactive Game Manual
+build_property.ProjectDir = C:\Users\HP\OneDrive - East Tennessee State University\github\GUI Interactive Game Manual (2)\GUI Interactive Game Manual\GUI Interactive Game Manual\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\HP\OneDrive - East Tennessee State University\github\GUI Interactive Game Manual (2)\GUI Interactive Game Manual\GUI Interactive Game Manual
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/Character.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/CharacterDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXJEZXRhaWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/Item.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJdGVtLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/ItemDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJdGVtRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/MazePage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYXplUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/MonsterDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb25zdGVyRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/Notes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3Rlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Pages/Weather.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-pikjrr6kcu
+
+[C:/Users/HP/OneDrive - East Tennessee State University/github/GUI Interactive Game Manual (2)/GUI Interactive Game Manual/GUI Interactive Game Manual/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-cff6nv8nuo

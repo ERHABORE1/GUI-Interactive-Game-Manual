@@ -1,0 +1,77 @@
+﻿@page "/character/{name}"
+@using Text_BasedAdventure
+@inject GUIInteractiveGameManual.Services.IMazeServices MazeService
+
+<h2 style="text-align: center; font-family: 'Segoe UI', Tahoma, sans-serif;">Character Details</h2>
+
+@if (selectedCharacter != null)
+{
+    <!-- If a character is found, display their details inside a container with flex layout -->
+    <div style="max-width: 800px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <!--
+                  Image section: Display different images based on whether the character is a Player or Monster.
+              -->
+            <div style="flex: 1; text-align: center; margin-right: 20px;">
+                @if (selectedCharacter is Player selectedPlayer)
+                {
+                    <!-- Display the player's image -->
+                    <img src="https://th.bing.com/th/id/OIP.UpstQxtm6KWxi4PI0dkJEQHaEK?w=277&h=180&c=7&r=0&o=5&pid=1.7" alt="@selectedPlayer.Name" style="max-width: 100%; border-radius: 10px;" />
+                }
+                else if (selectedCharacter is Monster selectedMonster)
+                {
+                    <!-- Display the monster's image -->
+                    <img src="https://th.bing.com/th/id/OIP._lfcw_RBTUli68w9zUYkBwHaE8?w=221&h=180&c=7&r=0&o=5&pid=1.7" alt="@selectedMonster.Name" style="max-width: 100%; border-radius: 10px;" />
+                }
+            </div>
+
+            <!-- Character details section: Display health, attack power, and position if it's a player -->
+            <div style="flex: 2;">
+                @if (selectedCharacter is Player playerDetails)
+                {
+                    <!-- Display the player's details -->
+                    <h3 style="color: #007BFF;">@playerDetails.Name</h3>
+                    <p style="font-size: 18px;"><strong>Health:</strong> @playerDetails.Health</p>
+                    <p style="font-size: 18px;"><strong>Attack Power:</strong> @playerDetails.AttackPower</p>
+                    <p style="font-size: 18px;"><strong>Position:</strong> (@playerDetails.Position.Item1, @playerDetails.Position.Item2)</p>
+                    <!-- Displaying player's position (X, Y coordinates) -->
+                }
+                else if (selectedCharacter is Monster selectedMonster)
+                {
+                    <!-- Display the monster's details -->
+                    <h3 style="color: #DC3545;">@selectedMonster.Name</h3>
+                    <p style="font-size: 18px;"><strong>Health:</strong> @selectedMonster.Health</p>
+                    <p style="font-size: 18px;"><strong>Attack Power:</strong> @selectedMonster.AttackPower</p>
+                }
+
+             
+            </div>
+        </div>
+
+        <!-- Section for additional information or special attributes -->
+        <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+            <h4 style="color: #333;">Additional Information</h4>
+            <p style="font-size: 16px;">Special attributes or abilities of the character can go here.</p>
+        </div>
+    </div>
+}
+else
+{
+    <!-- Message displayed if no character is found matching the provided name. -->
+    <p style="text-align: center; color: red;">Character not found.</p>
+}
+
+@code {
+    // This parameter binds the character's name from the URL
+    [Parameter] public string name { get; set; }
+
+    // The selected character (either a Player or Monster)
+    private ICharacter selectedCharacter;
+
+    protected override void OnInitialized()
+    {
+        // Try to find the character by name in both the Players and Monsters collections.
+        selectedCharacter = (ICharacter)MazeService.Players.FirstOrDefault(p => p.Name == name) ??
+                            (ICharacter)MazeService.Monsters.FirstOrDefault(m => m.Name == name);
+}
+}

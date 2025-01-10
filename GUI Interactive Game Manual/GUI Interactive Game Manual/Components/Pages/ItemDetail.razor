@@ -1,0 +1,62 @@
+﻿@page "/item/{name}"
+@inject GUIInteractiveGameManual.Services.IMazeServices MazeService
+@using Text_BasedAdventure
+
+
+@*<h2>Item Details</h2>
+
+@if (selectedItem != null)
+{
+    <div>
+        <img src="https://th.bing.com/th?id=OIP.S10OzrcaX4rJVWrm1oIJrgAAAA&w=333&h=187&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="MazeService.Items.Name" />
+        <h3>MazeService.Items.Name</h3>
+        <p>MazeService.Items.Message</p>
+
+        @if (selectedItem is Weapon weapon)
+        {
+            <p>Attack Modifier: @weapon.AttackModifier</p>
+        }
+        else if (selectedItem is Potion potion)
+        {
+            <p>Heal Amount: @potion.HealAmount</p>
+        }
+    </div>
+}
+else
+{
+    <p>Item not found</p>
+}
+
+@code {
+    [Parameter] public string itemName { get; set; }
+    private Item selectedItem;
+
+    protected override void OnInitialized()
+    {
+        selectedItem = GameDataService.Weapons.FirstOrDefault(w => w.Name == itemName) as Item
+                     ?? GameDataService.Potions.FirstOrDefault(p => p.Name == itemName) as Item;
+    }
+}
+
+@if (selectedItem is Weapon weapon)
+{
+    <h3>@weapon.Name</h3>
+    <img src="@weapon.ImageUrl" alt="@weapon.Name" />
+    <p>@weapon.Description</p>
+    <p>Attack Modifier: @weapon.AttackModifier</p>
+}
+else if (selectedItem is Potion potion)
+{
+    <h3>@potion.Name</h3>
+    <img src="@potion.ImageUrl" alt="@potion.Name" />
+    <p>@potion.Description</p>
+    <p>Health Boost: @potion.HealthBoost</p>
+}
+else
+{
+    <p>Item not found.</p>
+}*@
+}
+
+
+ 

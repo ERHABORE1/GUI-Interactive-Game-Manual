@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI Interactive Game Manual", "GUI Interactive Game Manual\GUI Interactive Game Manual.csproj", "{62ECDFE0-86AD-4169-B732-ACC65C44E063}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62ECDFE0-86AD-4169-B732-ACC65C44E063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62ECDFE0-86AD-4169-B732-ACC65C44E063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62ECDFE0-86AD-4169-B732-ACC65C44E063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62ECDFE0-86AD-4169-B732-ACC65C44E063}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BAF8786-B945-4F51-97DC-9960E4E37000}
+	EndGlobalSection
+EndGlobal

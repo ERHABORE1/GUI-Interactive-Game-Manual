@@ -1,0 +1,31 @@
+﻿@page "/monster/{name}"
+@using Text_BasedAdventure
+@inject GUIInteractiveGameManual.Services.IMazeServices MazeService
+
+@code {
+    // The 'name' parameter is bound from the URL to retrieve the specific monster.
+    [Parameter] public string name { get; set; }
+
+    // A private field to store the monster that matches the given name.
+    private Monster selectedMonster;
+
+    // This method is called when the page is initialized. It searches for the monster by name.
+    protected override void OnInitialized()
+    {
+        // Retrieves the first monster that matches the name from the list of monsters in MazeService.
+        selectedMonster = MazeService.Monsters.FirstOrDefault(m => m.Name == name);
+    }
+}
+
+@if (selectedMonster != null)
+{
+    <!-- If the monster is found, display its details: name, health, and attack power. -->
+    <h2>@selectedMonster.Name</h2>
+    <p><strong>Health:</strong> @selectedMonster.Health</p>
+    <p><strong>Attack Power:</strong> @selectedMonster.AttackPower</p>
+}
+else
+{
+    <!-- If the monster is not found, show a "Monster not found" message. -->
+    <p>Monster not found.</p>
+}
